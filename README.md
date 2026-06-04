@@ -2,6 +2,21 @@
 
 This repository implements fully backpropagation-free training for physics-informed neural networks (PINNs), supporting both weight-domain and phase-domain training across multiple PDEs.
 
+Paper: [Scalable Back-Propagation-Free Training of Optical Physics-Informed Neural Networks](https://arxiv.org/pdf/2502.12384)
+
+This work has been accepted by **ACM Transactions on Design Automation of Electronic Systems (TODAES)**. If you use this code or build on the ideas in the paper, please cite:
+
+```bibtex
+@article{zhao2025scalable,
+  title={Scalable back-propagation-free training of optical physics-informed neural networks},
+  author={Zhao, Yequan and Yu, Xinling and Xiao, Xian and Chen, Zhixiong and Liu, Ziyue and Kurczveil, Geza and Beausoleil, Raymond G and Liu, Sijia and Zhang, Zheng},
+  journal={arXiv preprint arXiv:2502.12384},
+  year={2025}
+}
+```
+
+The BibTeX entry will be updated to the TODAES version once the journal reference (volume / issue / DOI) is published; please prefer the journal version of the citation after that.
+
 ---
 
 ## 📖 About this work
@@ -14,7 +29,7 @@ This project removes both obstacles by making the entire training pipeline **com
 2. **Tensor-train (TT) dimension-reduced zeroth-order optimizer** — performs parameter updates through forward-only Monte-Carlo gradient estimates in a TT-factorized weight space, which is small enough for ZO to converge well and large enough to retain the expressivity of a real PINN.
 3. **Photonic tensor-core accelerator design** — a scalable on-chip architecture that maps the TT layers onto photonic tensor cores and, because no BP is required, needs no photonic memory for intermediate activations.
 
-The numerical methods are validated on low- and high-dimensional PDE benchmarks (Black-Scholes, Burgers, Darcy, 20-D HJB), and pre-silicon simulation with real device parameters shows large reductions in chip area and end-to-end training latency relative to GPU baselines. The accompanying manuscript is included in this repository: [`Final_Scalable_Back_Propagation_Free_Training_of_Optical_Physics_Informed_Neural_Networks.pdf`](./Final_Scalable_Back_Propagation_Free_Training_of_Optical_Physics_Informed_Neural_Networks.pdf).
+The numerical methods are validated on low- and high-dimensional PDE benchmarks (Black-Scholes, Burgers, Darcy, 20-D HJB), and pre-silicon simulation with real device parameters shows large reductions in chip area and end-to-end training latency relative to GPU baselines.
 
 ---
 
@@ -162,23 +177,6 @@ Each `table_*.sh <PDE>` runs three `python main.py` invocations sequentially and
 | `MNIST/`                                        | Standalone MNIST classification entry (uses the same `core/` library)                                                                                                            |
 
 For an architectural deep dive, see [`CLAUDE.md`](./CLAUDE.md).
-
----
-
-## 📝 Citation
-
-This work has been accepted by **ACM Transactions on Design Automation of Electronic Systems (TODAES)**. If you use this code or build on the ideas in the paper, please cite:
-
-```bibtex
-@article{zhao2025scalable,
-  title={Scalable back-propagation-free training of optical physics-informed neural networks},
-  author={Zhao, Yequan and Yu, Xinling and Xiao, Xian and Chen, Zhixiong and Liu, Ziyue and Kurczveil, Geza and Beausoleil, Raymond G and Liu, Sijia and Zhang, Zheng},
-  journal={arXiv preprint arXiv:2502.12384},
-  year={2025}
-}
-```
-
-The BibTeX entry will be updated to the TODAES version once the journal reference (volume / issue / DOI) is published; please prefer the journal version of the citation after that.
 
 ---
 
