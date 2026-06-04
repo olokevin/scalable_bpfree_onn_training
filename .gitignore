@@ -20,6 +20,8 @@ fusion/iemocap/data/*
 fusion/iemocap/tt_models/*
 fusion/iemocap/tt_runs/*
 
+CLAUDE.md
+
 # C extensions
 *.so
 
